@@ -5,7 +5,7 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
-platform :ios, '15.0'
+platform :ios, '16.0'
 prepare_react_native_project!
 
 linkage = ENV['USE_FRAMEWORKS']
@@ -49,28 +49,28 @@ target 'ReactNativeKit' do
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
-    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    #__apply_Xcode_12_5_M1_post_install_workaround(installer)
 
     # Workaround for iOS non-public selectors issue
     # https://github.com/facebook/react-native/issues/31507
-    find_and_replace("../node_modules/react-native/React/Base/RCTKeyCommands.m",
-                                "_modifierFlags",
-                                "_modifierEventFlags")
-    find_and_replace("../node_modules/react-native/React/Base/RCTKeyCommands.m",
-                            "_modifiedInput",
-                            "_modifiedEventInput")
-    find_and_replace("../node_modules/react-native/React/Base/RCTKeyCommands.m",
-                            "_isKeyDown",
-                            "_isKeyEventDown")
-    find_and_replace("../node_modules/react-native/React/DevSupport/RCTPackagerClient.h",
-                            "handleNotification",
-                            "handlePackageNotification")
+    # find_and_replace("../node_modules/react-native/React/Base/RCTKeyCommands.m",
+    #                             "_modifierFlags",
+    #                             "_modifierEventFlags")
+    # find_and_replace("../node_modules/react-native/React/Base/RCTKeyCommands.m",
+    #                         "_modifiedInput",
+    #                         "_modifiedEventInput")
+    # find_and_replace("../node_modules/react-native/React/Base/RCTKeyCommands.m",
+    #                         "_isKeyDown",
+    #                         "_isKeyEventDown")
+    # find_and_replace("../node_modules/react-native/React/DevSupport/RCTPackagerClient.h",
+    #                         "handleNotification",
+    #                         "handlePackageNotification")
 
-    find_and_replace("../node_modules/react-native/React/DevSupport/RCTPackagerConnection.mm",
-                            "handleNotification",
-                            "handlePackageNotification")
+    # find_and_replace("../node_modules/react-native/React/DevSupport/RCTPackagerConnection.mm",
+    #                         "handleNotification",
+    #                         "handlePackageNotification")
 
-    PLIST_BUDDY_PATH = '/usr/libexec/PlistBuddy'
+    # PLIST_BUDDY_PATH = '/usr/libexec/PlistBuddy'
 
     targets_to_skip_verification = [
       'Yoga',
