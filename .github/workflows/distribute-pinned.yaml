@@ -8,7 +8,7 @@ on:
 env:
   GITHUB_BOT_USERNAME: "github-actions"
   GITHUB_BOT_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
-  REACT_NATIVE_VERSION: "0.72.3"
+  REACT_NATIVE_VERSION: "0.75.4"
 
 jobs:
   build:

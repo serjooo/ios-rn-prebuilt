@@ -4,7 +4,7 @@ root=$(pwd)
 rm -rf ./react-native
 mkdir -p ./react-native
 cd ./react-native
-npx @react-native-community/cli init ReactNativeKit --version 0.75.4
+npx @react-native-community/cli init ReactNativeKit --version "${REACT_NATIVE_VERSION:-0.75.4}"
 cd ./ReactNativeKit
 npm install \
     @react-navigation/native@7.0.15 \
@@ -18,7 +18,7 @@ npm install \
     react-native-svg@15.11.2 \
     @react-native-async-storage/async-storage@2.1.2 --save-exact
 
-cd $root
+cd "$root"
 rm -rf ./react-native/ReactNativeKit/ios/*
 cp -r ./ReactNativeKit/* ./react-native/ReactNativeKit/ios/
 
