@@ -9,7 +9,6 @@ env:
   GITHUB_BOT_USERNAME: "github-actions"
   GITHUB_BOT_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
   REACT_NATIVE_VERSION: "0.72.3"
-  NO_FLIPPER: "1"
 
 jobs:
   build:
@@ -94,7 +93,7 @@ jobs:
           # Print current podfile for debugging
           cat ./react-native/ReactNativeKit/ios/Podfile
           # Clean up boilerplate xcode project
-          rm -rf ./react-native/ReactNativeKit/ios/* 
+          rm -rf ./react-native/ReactNativeKit/ios/*
           # Copy my template project
           cp -r ./ReactNativeKit/* ./react-native/ReactNativeKit/ios/
 
@@ -137,20 +136,20 @@ jobs:
           for dir in *.xcframework
           do
             xcframework_name=$(basename $dir .xcframework)
-            
+
             echo "Processing $dir ..."
 
             # Estimate release download url
             url=https://github.com/${{ github.repository }}/releases/download/${{ steps.target_version.outputs.target_version }}/${dir}.zip
             echo "url=$url"
-            
+
             # Compute checksum
             checksum=$(swift package compute-checksum ${dir}.zip)
             echo "checksum=$checksum"
 
             binary_target=".binaryTarget(name: \"$xcframework_name\", url: \"$url\", checksum: \"$checksum\"),"
             binaryTargets+=("$binary_target")
-            
+
             # Add xcframework to appropriate targetName array
             if [[ "$xcframework_name" == *"Debug"* ]]; then
                 debugTargetNames+=("\"$xcframework_name\"")

@@ -1,6 +1,5 @@
 set -e
 ruby --version
-export NO_FLIPPER=1
 root=$(pwd)
 rm -rf ./react-native
 mkdir -p ./react-native
