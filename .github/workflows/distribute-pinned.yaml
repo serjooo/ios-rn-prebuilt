@@ -73,21 +73,7 @@ jobs:
 
       - name: Install react-native
         run: |
-          mkdir -p ./react-native
-          cd ./react-native
-          npx react-native init ReactNativeKit --version ${{ env.REACT_NATIVE_VERSION }}
-          cd ReactNativeKit
-          npm install \
-            @react-navigation/native@6.1.7 \
-            react-native-screens@3.23.0 \
-            react-native-safe-area-context@4.7.1 \
-            @react-navigation/native-stack@6.9.13 \
-            react-native-gesture-handler@2.12.0 \
-            react-native-reanimated@3.4.2 \
-            @react-navigation/drawer@6.6.3 \
-            @react-native-picker/picker@2.5.0 \
-            react-native-svg@13.11.0 \
-            @react-native-async-storage/async-storage@1.19.8 --save-exact
+          sh ./scripts/install-react-native.sh
 
       - name: Copy template projects
         run: |
