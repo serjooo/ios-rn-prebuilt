@@ -73,7 +73,7 @@ jobs:
 
       - name: Install react-native
         run: |
-          sh ./scripts/install-react-native.sh
+          sh ./.github/workflows/scripts/install-react-native.sh
 
       - name: Copy template projects
         run: |
