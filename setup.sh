@@ -5,7 +5,7 @@ root=$(pwd)
 rm -rf ./react-native
 mkdir -p ./react-native
 cd ./react-native
-npx react-native init ReactNativeKit --version 0.72.3
+npx @react-native-community/cli init ReactNativeKit
 cd ./ReactNativeKit
 npm install \
     @react-navigation/native@6.1.7 \
