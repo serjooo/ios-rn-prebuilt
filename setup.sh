@@ -8,16 +8,16 @@ cd ./react-native
 npx @react-native-community/cli init ReactNativeKit
 cd ./ReactNativeKit
 npm install \
-    @react-navigation/native@6.1.7 \
-    react-native-screens@3.23.0 \
-    react-native-safe-area-context@4.7.1 \
-    @react-navigation/native-stack@6.9.13 \
+    @react-navigation/native@7.0.15 \
+    react-native-screens@4.9.2 \
+    react-native-safe-area-context@5.3.0 \
+    @react-navigation/native-stack@7.2.1 \
     react-native-gesture-handler@2.12.0 \
-    react-native-reanimated@3.4.2 \
-    @react-navigation/drawer@6.6.3 \
-    @react-native-picker/picker@2.5.0 \
-    react-native-svg@13.11.0 \
-    @react-native-async-storage/async-storage@1.19.8 --save-exact
+    react-native-reanimated@3.17.1 \
+    @react-navigation/drawer@7.1.2 \
+    @react-native-picker/picker@2.11.0 \
+    react-native-svg@15.11.2 \
+    @react-native-async-storage/async-storage@2.1.2 --save-exact
 
 cd $root
 rm -rf ./react-native/ReactNativeKit/ios/*
